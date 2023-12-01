@@ -1,0 +1,5 @@
+[[language]]
+name = "markdown"
+text-width = 80
+soft-wrap.wrap-at-text-width = true
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}

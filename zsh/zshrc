@@ -1,0 +1,19 @@
+# .zshrc
+
+
+source "$ZCONFIG_PATH/functions/interactive.zsh"
+
+# TODO: private (for work-related or other machine/personal configuration)?
+# Maybe path stuff can stay here if it's automated?
+
+# Make the prompt a little nicer-looking.
+# %F{<color>}...%f are for changing the color of the text.
+# %n is the username of this account
+# %1~ show the current working directory with HOME stripped out
+# %# Show # if the shell has root privileges or % otherwise.
+setopt PROMPT_SUBST
+PROMPT='%F{magenta}%n%f%F{yellow}$(parse_git_branch)%f : %F{cyan}%1~%f %# '
+
+export EDITOR=hx
+export VISUAL="$EDITOR"
+

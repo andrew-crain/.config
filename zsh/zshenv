@@ -1,0 +1,38 @@
+# zshenv
+
+# My default paths for things I care about.
+export HOMEBASE="$HOME/base"
+export NOTES_PATH="$HOMEBASE/notes"
+export CONFIG_PATH="$HOMEBASE/.config"
+export ZCONFIG_PATH="$CONFIG_PATH/zsh"
+
+source "$ZCONFIG_PATH/functions/non_interactive.zsh"
+source "$ZCONFIG_PATH/functions/interactive.zsh"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Allow pyenv to manage python versions
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Add poetry to the path
+export PATH="/Users/andrewcrain/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/andrewcrain/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# llvm settings
+path=("/opt/homebrew/opt/llvm/bin" $path)
+
+export LIBRARY_PATH="${LIBRARY_PATH}:/usr/local/lib"
+
+# Rust
+path+="$HOME/.cargo/bin" 
+
