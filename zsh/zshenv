@@ -5,6 +5,7 @@ export HOMEBASE="$HOME/base"
 export NOTES_PATH="$HOMEBASE/notes"
 export CONFIG_PATH="$HOMEBASE/.config"
 export ZCONFIG_PATH="$CONFIG_PATH/zsh"
+export DOCS_PATH="$HOMEBASE/docs"
 
 source "$ZCONFIG_PATH/functions/non_interactive.zsh"
 source "$ZCONFIG_PATH/functions/interactive.zsh"

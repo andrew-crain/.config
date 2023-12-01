@@ -55,3 +55,10 @@ backup_base () {
   zip -vr "$BACKUP_PATH" "$HOMEBASE" -x "*.DS_Store" -x "$HOMEBASE/.private/*"
   mv "$BACKUP_PATH" "$COPY_TARGET"
 }
+
+mv_to_docs () {
+  year=$(date "+%Y")
+  docs_path_with_year="$DOCS_PATH/$year"
+  filename=$(basename "$1")
+  mv "$1" "$docs_path_with_year/$1"
+}
