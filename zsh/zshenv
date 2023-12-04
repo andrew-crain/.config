@@ -2,6 +2,7 @@
 
 # My default paths for things I care about.
 export HOMEBASE="$HOME/base"
+# TODO: Should rename these to "FOLDER" or "DIR"?
 export NOTES_PATH="$HOMEBASE/notes"
 export CONFIG_PATH="$HOMEBASE/.config"
 export ZCONFIG_PATH="$CONFIG_PATH/zsh"
@@ -9,6 +10,10 @@ export DOCS_PATH="$HOMEBASE/docs"
 
 source "$ZCONFIG_PATH/functions/non_interactive.zsh"
 source "$ZCONFIG_PATH/functions/interactive.zsh"
+
+# Anything that's local to this machine and shouldn't be
+# added to the git repo.
+source "$ZCONFIG_PATH/local.zsh"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -48,12 +48,11 @@ parse_git_branch () {
 }
 
 backup_base () {
-  TMP_DIR=$(mktemp -d)
-  DATE_STR=$(date "+%Y_%m_%d_%H_%M_%S")
-  BACKUP_PATH="$TMP_DIR/base_$DATE_STR.zip"
-  COPY_TARGET="/Users/s1931396/OneDrive - 7-Eleven, Inc/home/backups/"
-  zip -vr "$BACKUP_PATH" "$HOMEBASE" -x "*.DS_Store" -x "$HOMEBASE/.private/*"
-  mv "$BACKUP_PATH" "$COPY_TARGET"
+  tmp_dir=$(mktemp -d)
+  date_str=$(date "+%Y_%m_%d_%H_%M_%S")
+  tmp_backup_file="$tmp_dir/base_$date_str.zip"
+  zip -vr "$tmp_backup_file" "$HOMEBASE" -x "*.DS_Store" -x "$HOMEBASE/.private/*"
+  mv "$tmp_backup_file" "$BACKUP_FOLDER"
 }
 
 mv_to_docs () {
@@ -61,4 +60,16 @@ mv_to_docs () {
   docs_path_with_year="$DOCS_PATH/$year"
   filename=$(basename "$1")
   mv "$1" "$docs_path_with_year/$1"
+}
+
+to_pdf () {
+  # Requires pdflatex
+  path_without_ext=${1%.*}
+  pandoc $1 -t pdf -o "$path_without_ext.pdf"
+}
+
+to_html () {
+  path_without_ext=${1%.*}
+  filename=$(basename $path_without_ext)
+  pandoc $1 -s -t html -o "$path_without_ext.html" --katex
 }

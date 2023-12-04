@@ -34,12 +34,5 @@ right = ["version-control", "diagnostics", "selections", "register", "position",
 [keys.normal."space"]
 "tab" = ":buffer-next"
 
-[keys.normal.","]
-"u" = ":pipe-to firefox --new-tab "
-
-[keys.normal.","."h"]
-"c" = ":open ~/.config/helix/config.toml"
-"l" = ":open ~/.config/helix/languages.toml"
-
 [keys.insert]
 "C-[" = "normal_mode"
