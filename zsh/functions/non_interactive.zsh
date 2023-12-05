@@ -73,3 +73,9 @@ to_html () {
   filename=$(basename $path_without_ext)
   pandoc $1 -s -t html -o "$path_without_ext.html" --katex
 }
+
+gh_link_as_https () {
+  gh_url=$(git config --get remote.origin.url)
+  truncated_gh_url=${gh_url#*\:}
+  echo "https://github.com/$truncated_gh_url"
+}
