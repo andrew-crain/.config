@@ -79,3 +79,13 @@ gh_link_as_https () {
   truncated_gh_url=${gh_url#*\:}
   echo "https://github.com/$truncated_gh_url"
 }
+
+template_advent_of_code () {
+  if [ -n "$1" ]
+  then
+    dest="."
+  else
+    dest="$1"
+  fi
+  cp -R "$TEMPLATES_PATH/day-n" "$dest/"
+}
