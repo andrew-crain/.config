@@ -70,7 +70,6 @@ to_pdf () {
 
 to_html () {
   path_without_ext=${1%.*}
-  filename=$(basename $path_without_ext)
   pandoc $1 -s -t html -o "$path_without_ext.html" --katex
 }
 

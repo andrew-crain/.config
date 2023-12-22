@@ -34,5 +34,8 @@ right = ["version-control", "diagnostics", "selections", "register", "position",
 [keys.normal."space"]
 "tab" = ":buffer-next"
 
+[keys.normal."space"."space"]
+"g" = ":sh /Users/andrewcrain/base/notes/public/bin/generate_site"
+
 [keys.insert]
 "C-[" = "normal_mode"
